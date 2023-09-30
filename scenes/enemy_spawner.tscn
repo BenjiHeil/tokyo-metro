@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b76xy1yh41a6o"]
+
+[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_wdxyv"]
+
+[node name="EnemySpawner" type="Node"]
+script = ExtResource("1_wdxyv")
+
+[node name="SnakeSpawn" type="Node2D" parent="."]
+position = Vector2(232, 93)
+
+[node name="BatSpawn" type="Node2D" parent="."]
+position = Vector2(232, 66)
+
+[node name="SongLoader" type="Node" parent="."]

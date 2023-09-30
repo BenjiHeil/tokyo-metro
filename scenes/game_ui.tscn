@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://8838y7cujxld"]
+
+[ext_resource type="Script" path="res://scripts/steez_bar.gd" id="1_7drfm"]
+[ext_resource type="Texture2D" uid="uid://btm56uuu48vpn" path="res://assets/steez.png" id="2_gxxgt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 160.0
+
+[node name="Steezbar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 155.0
+offset_right = 106.0
+offset_bottom = 158.0
+color = Color(0.372549, 0.803922, 0.894118, 1)
+script = ExtResource("1_7drfm")
+
+[node name="Label" type="Sprite2D" parent="Steezbar"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(32, -13)
+texture = ExtResource("2_gxxgt")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://rn3j54347m8s"]
+
+[ext_resource type="Script" path="res://scripts/kill_zone.gd" id="1_d1ieh"]
+[ext_resource type="AudioStream" uid="uid://qqbfoyrf3ban" path="res://assets/snare_tokyo_metro.wav" id="1_dwq6o"]
+[ext_resource type="Script" path="res://scripts/enemy_sound.gd" id="2_qxhng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai8m8"]
+size = Vector2(20, 31)
+
+[node name="KillZone" type="Area2D"]
+script = ExtResource("1_d1ieh")
+targetGroupName = "Bats"
+
+[node name="Kill" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ai8m8")
+
+[node name="PlayKillSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_dwq6o")
+script = ExtResource("2_qxhng")

@@ -1,46 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbnsdgaar81sv"]
+[gd_scene load_steps=7 format=3 uid="uid://dbnsdgaar81sv"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1y2xy"]
-[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_ayfcm"]
+[ext_resource type="PackedScene" uid="uid://b76xy1yh41a6o" path="res://scenes/enemy_spawner.tscn" id="2_yikvq"]
 [ext_resource type="PackedScene" uid="uid://daata6sobono3" path="res://scenes/player.tscn" id="3_5mm8c"]
-[ext_resource type="Texture2D" uid="uid://btm56uuu48vpn" path="res://assets/steez.png" id="3_ki8gq"]
-[ext_resource type="Script" path="res://scripts/steez_bar.gd" id="3_ux1ya"]
+[ext_resource type="PackedScene" uid="uid://8838y7cujxld" path="res://scenes/game_ui.tscn" id="4_aad8d"]
+[ext_resource type="PackedScene" uid="uid://rn3j54347m8s" path="res://scenes/kill_zone_bats.tscn" id="5_f6nug"]
+[ext_resource type="PackedScene" uid="uid://busjddk4gquh2" path="res://scenes/kill_zone_snakes.tscn" id="6_o5sdk"]
 
 [node name="SubwayScene" type="Node"]
 script = ExtResource("1_1y2xy")
 steezAmount = 100.0
 
-[node name="EnemySpawner" type="Node" parent="."]
-script = ExtResource("1_ayfcm")
-
-[node name="SnakeSpawn" type="Node2D" parent="EnemySpawner"]
-position = Vector2(196, 93)
-
-[node name="BatSpawn" type="Node2D" parent="EnemySpawner"]
-position = Vector2(232, 66)
-
-[node name="SongLoader" type="Node" parent="EnemySpawner"]
+[node name="EnemySpawner" parent="." instance=ExtResource("2_yikvq")]
 
 [node name="Player" parent="." instance=ExtResource("3_5mm8c")]
 position = Vector2(14, 83)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 240.0
-offset_bottom = 160.0
+[node name="Control" parent="." instance=ExtResource("4_aad8d")]
 
-[node name="Steezbar" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 155.0
-offset_right = 106.0
-offset_bottom = 158.0
-color = Color(0.372549, 0.803922, 0.894118, 1)
-script = ExtResource("3_ux1ya")
+[node name="KillZoneBats" parent="." instance=ExtResource("5_f6nug")]
+position = Vector2(42, 63)
 
-[node name="Label" type="Sprite2D" parent="Control/Steezbar"]
-texture_filter = 1
-texture_repeat = 1
-position = Vector2(32, -13)
-texture = ExtResource("3_ki8gq")
+[node name="KillZone2Snakes" parent="." instance=ExtResource("6_o5sdk")]
+position = Vector2(42, 95)

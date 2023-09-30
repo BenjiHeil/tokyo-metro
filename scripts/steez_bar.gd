@@ -12,6 +12,6 @@ func _on_parent_steez_updated(value):
 	percentFull = value
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	size = Vector2(maxSize * percentFull / 100.0, size.y)
 	

@@ -23,7 +23,7 @@ func _ready():
 func _on_timer_timeout():
 	beat.emit()
 
-func _on_player_player_hit(body):
+func _on_player_player_hit(_body):
 	var newValue = steezAmount - hitPenalty
 	update_steez(newValue)
 	

@@ -3,6 +3,7 @@ extends Node
 const snake = preload("res://scenes/snake.tscn")
 const bat = preload("res://scenes/bat.tscn")
 var canSpawn = false
+var counter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
@@ -19,5 +20,9 @@ func _on_parent_begin_spawning():
 	canSpawn = true
 
 func _on_parent_beat():
+	counter += 1
 	if canSpawn: 
-		spawn_enemy(snake, $SnakeSpawn)
+		if counter % 2 == 0:
+			spawn_enemy(bat, $BatSpawn)
+		else:
+			spawn_enemy(snake, $SnakeSpawn)
