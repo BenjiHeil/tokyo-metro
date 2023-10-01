@@ -8,8 +8,11 @@
 size = Vector2(20, 31)
 
 [node name="KillZone" type="Area2D"]
+visible = false
 script = ExtResource("1_yxivf")
 targetGroupName = "Snakes"
+actionName = "kick"
+activeTime = 0.1
 
 [node name="Kill" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ai8m8")

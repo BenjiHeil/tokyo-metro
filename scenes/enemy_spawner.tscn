@@ -10,5 +10,3 @@ position = Vector2(232, 93)
 
 [node name="BatSpawn" type="Node2D" parent="."]
 position = Vector2(232, 66)
-
-[node name="SongLoader" type="Node" parent="."]

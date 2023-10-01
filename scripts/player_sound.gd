@@ -8,5 +8,5 @@ func _ready():
 
 
 func _on_player_player_hit(_body):
-	#play()
+	play()
 	pass

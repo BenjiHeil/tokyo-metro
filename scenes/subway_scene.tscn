@@ -9,7 +9,7 @@
 
 [node name="SubwayScene" type="Node"]
 script = ExtResource("1_1y2xy")
-steezAmount = 100.0
+hitPenalty = 10
 
 [node name="EnemySpawner" parent="." instance=ExtResource("2_yikvq")]
 
@@ -21,5 +21,5 @@ position = Vector2(14, 83)
 [node name="KillZoneBats" parent="." instance=ExtResource("5_f6nug")]
 position = Vector2(42, 63)
 
-[node name="KillZone2Snakes" parent="." instance=ExtResource("6_o5sdk")]
+[node name="KillZoneSnakes" parent="." instance=ExtResource("6_o5sdk")]
 position = Vector2(42, 95)
