@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs53kvprk0vdy"]
+
+[ext_resource type="Theme" uid="uid://cw2l44phdfidq" path="res://main_theme.tres" id="1_8rr3f"]
+[ext_resource type="Script" path="res://scripts/play.gd" id="2_d6hhx"]
+[ext_resource type="Script" path="res://scripts/exit.gd" id="3_nx0hu"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_pxd34"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_tm03q"]
+events = [SubResource("InputEventKey_pxd34")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_tbqxn"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_h6pne"]
+events = [SubResource("InputEventKey_tbqxn")]
+
+[node name="GameOverMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 59.0
+offset_right = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_8rr3f")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+text = "score: "
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+shortcut = SubResource("Shortcut_tm03q")
+text = "Try Again"
+script = ExtResource("2_d6hhx")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+shortcut = SubResource("Shortcut_h6pne")
+text = "Exit"
+script = ExtResource("3_nx0hu")

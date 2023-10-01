@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbnsdgaar81sv"]
+[gd_scene load_steps=8 format=3 uid="uid://dbnsdgaar81sv"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1y2xy"]
 [ext_resource type="PackedScene" uid="uid://b76xy1yh41a6o" path="res://scenes/enemy_spawner.tscn" id="2_yikvq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8838y7cujxld" path="res://scenes/game_ui.tscn" id="4_aad8d"]
 [ext_resource type="PackedScene" uid="uid://rn3j54347m8s" path="res://scenes/kill_zone_bats.tscn" id="5_f6nug"]
 [ext_resource type="PackedScene" uid="uid://busjddk4gquh2" path="res://scenes/kill_zone_snakes.tscn" id="6_o5sdk"]
+[ext_resource type="Texture2D" uid="uid://c28y6eq2n2bol" path="res://assets/Subway.png" id="7_3i4xl"]
 
 [node name="SubwayScene" type="Node"]
 script = ExtResource("1_1y2xy")
@@ -22,4 +23,13 @@ position = Vector2(14, 83)
 position = Vector2(42, 63)
 
 [node name="KillZoneSnakes" parent="." instance=ExtResource("6_o5sdk")]
+visible = true
 position = Vector2(42, 95)
+
+[node name="Subway" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.458824)
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(121, 76)
+texture = ExtResource("7_3i4xl")

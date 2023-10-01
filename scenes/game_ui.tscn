@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://8838y7cujxld"]
+[gd_scene load_steps=8 format=3 uid="uid://8838y7cujxld"]
 
 [ext_resource type="Script" path="res://scripts/steez_bar.gd" id="1_7drfm"]
+[ext_resource type="Theme" uid="uid://cw2l44phdfidq" path="res://main_theme.tres" id="1_8hd05"]
+[ext_resource type="Script" path="res://scripts/game_ui.gd" id="2_27s6f"]
 [ext_resource type="Texture2D" uid="uid://btm56uuu48vpn" path="res://assets/steez.png" id="2_gxxgt"]
 [ext_resource type="Texture2D" uid="uid://036mlcet5xrd" path="res://assets/Hit.png" id="3_g3hbv"]
 [ext_resource type="Texture2D" uid="uid://bqcbxnhng6psr" path="res://assets/Streak.png" id="4_e77qo"]
+[ext_resource type="Script" path="res://scripts/streak_counter.gd" id="6_2u7he"]
 
 [node name="Control" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 240.0
 offset_bottom = 160.0
+theme = ExtResource("1_8hd05")
+script = ExtResource("2_27s6f")
 
 [node name="Steezbar" type="ColorRect" parent="."]
 layout_mode = 0
@@ -69,12 +75,16 @@ position = Vector2(186, 13)
 texture = ExtResource("4_e77qo")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Streak"]
+modulate = Color(0.372549, 0.803922, 0.894118, 1)
 texture_filter = 1
 texture_repeat = 1
-offset_left = 5.0
-offset_top = -13.0
-offset_right = 45.0
-offset_bottom = 27.0
-text = "100"
+offset_left = 17.0
+offset_top = -6.0
+offset_right = 57.0
+offset_bottom = 34.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("1_8hd05")
+text = "011"
 fit_content = true
 text_direction = 2
+script = ExtResource("6_2u7he")

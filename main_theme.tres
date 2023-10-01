@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cw2l44phdfidq"]
+
+[ext_resource type="FontFile" uid="uid://drujtd3gu74so" path="res://addons/fff/FFFFORWA.TTF" id="1_w4qpo"]
+
+[resource]
+default_font = ExtResource("1_w4qpo")

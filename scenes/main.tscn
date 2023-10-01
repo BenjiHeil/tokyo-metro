@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctc1gydbrrnpd"]
+
+[ext_resource type="Theme" uid="uid://cw2l44phdfidq" path="res://main_theme.tres" id="1_housn"]
+[ext_resource type="Script" path="res://scripts/play.gd" id="2_3h6sv"]
+[ext_resource type="Script" path="res://scripts/exit.gd" id="3_63dgd"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_y54f0"]
+device = -1
+keycode = 4194309
+physical_keycode = 4194309
+key_label = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_jb0s1"]
+events = [SubResource("InputEventKey_y54f0")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_og36o"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_ng1ck"]
+events = [SubResource("InputEventKey_og36o")]
+
+[node name="Main" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 160.0
+
+[node name="Play" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 114.0
+offset_right = 142.0
+offset_bottom = 144.0
+theme = ExtResource("1_housn")
+action_mode = 0
+shortcut = SubResource("Shortcut_jb0s1")
+text = "Play"
+script = ExtResource("2_3h6sv")
+
+[node name="Exit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 114.0
+offset_right = 210.0
+offset_bottom = 144.0
+theme = ExtResource("1_housn")
+action_mode = 0
+shortcut = SubResource("Shortcut_ng1ck")
+text = "Exit
+"
+script = ExtResource("3_63dgd")
