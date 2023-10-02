@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/start_bg_music.gd" id="10_4frhe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vte"]
-size = Vector2(2, 62)
+size = Vector2(12, 62)
 
 [node name="Container" type="Node"]
 process_mode = 3
@@ -32,11 +32,11 @@ position = Vector2(14, 83)
 [node name="Control" parent="SubwayScene" instance=ExtResource("4_aad8d")]
 
 [node name="KillZoneBats" parent="SubwayScene" instance=ExtResource("5_f6nug")]
-position = Vector2(42, 63)
+position = Vector2(41, 63)
 
 [node name="KillZoneSnakes" parent="SubwayScene" instance=ExtResource("6_o5sdk")]
 visible = true
-position = Vector2(42, 95)
+position = Vector2(41, 95)
 
 [node name="Subway" type="Sprite2D" parent="SubwayScene"]
 modulate = Color(1, 1, 1, 0.458824)
@@ -54,7 +54,7 @@ script = ExtResource("10_4frhe")
 [node name="SongTrigger" type="Area2D" parent="SubwayScene"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubwayScene/SongTrigger"]
-position = Vector2(42, 79)
+position = Vector2(45, 79)
 shape = SubResource("RectangleShape2D_p0vte")
 
 [node name="PauseScreen" parent="." instance=ExtResource("9_rsnld")]

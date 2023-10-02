@@ -15,6 +15,7 @@ var firstHit = false
 signal steez_updated(newValue)
 signal streak_updated(newValue)
 signal game_over(score)
+signal song_complete(score)
 signal first_hit()
 signal beat(num)
 
@@ -45,7 +46,8 @@ func _ready():
 	$Player.player_hit.connect(_on_player_player_hit)
 	$KillZoneBats.kill.connect(_on_kill_zone_kill)
 	$KillZoneSnakes.kill.connect(_on_kill_zone_kill)
-	$SongTrigger.body_entered.connect(on_song_trigger_body_entered)
+	$SongTrigger.body_entered.connect(_on_song_trigger_body_entered)
+	beat.connect(_on_beat)
 	update_steez(steezAmount)
 	add_child(_timer)
 	_timer.timeout.connect(_on_timer_timeout)
@@ -67,10 +69,14 @@ func _on_kill_zone_kill(_body):
 	update_streak(currentStreak + 1)
 	score += 1
 
-func on_song_trigger_body_entered(body):
+func _on_song_trigger_body_entered(body):
 	if !firstHit && (body.is_in_group("Snakes") || body.is_in_group("Bats")):
 		firstHit = true
 		first_hit.emit()
+
+func _on_beat(beatval):
+	if beatval == -1:
+		song_complete.emit(get_final_score())
 	
 func update_steez(newValue):
 	if newValue < 0:
@@ -105,6 +111,9 @@ func load_song(song):
 			beats.append_array(song["patterns"][pattern["name"]])
 
 func end_game():
-	game_over.emit(score * 10 * highestStreak) # make the player feel better
+	game_over.emit(get_final_score()) # make the player feel better
 	get_tree().paused = true
+	
+func get_final_score():
+	return score * 10 * highestStreak
 

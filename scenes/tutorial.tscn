@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cjwrd7kp4q3ej" path="res://assets/SnakeIcon.png" id="6_rljrr"]
 [ext_resource type="Texture2D" uid="uid://ctg4mcgqcxfrj" path="res://assets/SteezIcon.png" id="7_ikqka"]
 [ext_resource type="Script" path="res://scripts/play.gd" id="8_4s2v7"]
-[ext_resource type="Script" path="res://scripts/close_tutorial.gd" id="9_e5fi1"]
+[ext_resource type="Script" path="res://scripts/go_to_main_menu.gd" id="9_icvks"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1yaow"]
 line_spacing = 10.0
@@ -22,6 +22,7 @@ color = Color(0, 0, 0, 1)
 [node name="Control" type="VBoxContainer" parent="."]
 texture_filter = 1
 texture_repeat = 1
+layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 163.0
@@ -182,4 +183,4 @@ script = ExtResource("8_4s2v7")
 [node name="Button" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 text = "Back"
-script = ExtResource("9_e5fi1")
+script = ExtResource("9_icvks")

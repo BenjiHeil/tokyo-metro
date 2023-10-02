@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2nhygjr6yg8"]
+[gd_scene load_steps=4 format=3 uid="uid://d2nhygjr6yg8"]
 
 [ext_resource type="Texture2D" uid="uid://bo4vp8r3x8qk7" path="res://assets/Pause.png" id="1_kxcx7"]
+[ext_resource type="Theme" uid="uid://cw2l44phdfidq" path="res://main_theme.tres" id="2_67icy"]
+[ext_resource type="Script" path="res://scripts/go_to_main_menu.gd" id="3_vlgqp"]
 
 [node name="ColorRect" type="ColorRect"]
 offset_right = 240.0
@@ -16,3 +18,11 @@ offset_top = 118.0
 offset_right = 236.0
 offset_bottom = 158.0
 texture = ExtResource("1_kxcx7")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_67icy")
+text = "exit"
+script = ExtResource("3_vlgqp")
