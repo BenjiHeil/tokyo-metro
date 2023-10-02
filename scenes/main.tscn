@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctc1gydbrrnpd"]
+[gd_scene load_steps=10 format=3 uid="uid://ctc1gydbrrnpd"]
 
 [ext_resource type="Theme" uid="uid://cw2l44phdfidq" path="res://main_theme.tres" id="1_housn"]
 [ext_resource type="Script" path="res://scripts/play.gd" id="2_3h6sv"]
 [ext_resource type="Script" path="res://scripts/exit.gd" id="3_63dgd"]
+[ext_resource type="Script" path="res://scripts/how_to_play.gd" id="3_ao7of"]
+[ext_resource type="Texture2D" uid="uid://tmouvbwk7xms" path="res://assets/MenuArt.png" id="5_nimct"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_y54f0"]
 device = -1
@@ -20,35 +22,51 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_ng1ck"]
 events = [SubResource("InputEventKey_og36o")]
 
-[node name="Main" type="Node"]
-
-[node name="Control" type="Control" parent="."]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 240.0
-offset_bottom = 160.0
+
+[node name="Control" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 33.0
+offset_right = 86.0
+offset_bottom = 133.0
+theme = ExtResource("1_housn")
+alignment = 1
 
 [node name="Play" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 90.0
-offset_top = 114.0
-offset_right = 142.0
-offset_bottom = 144.0
+layout_mode = 2
 theme = ExtResource("1_housn")
 action_mode = 0
 shortcut = SubResource("Shortcut_jb0s1")
 text = "Play"
+alignment = 0
+icon_alignment = 1
 script = ExtResource("2_3h6sv")
 
+[node name="How to Play" type="Button" parent="Control"]
+layout_mode = 2
+text = "Guide
+"
+alignment = 0
+script = ExtResource("3_ao7of")
+
 [node name="Exit" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 158.0
-offset_top = 114.0
-offset_right = 210.0
-offset_bottom = 144.0
+layout_mode = 2
 theme = ExtResource("1_housn")
 action_mode = 0
 shortcut = SubResource("Shortcut_ng1ck")
 text = "Exit
 "
+alignment = 0
 script = ExtResource("3_63dgd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 175.0
+offset_right = 239.0
+offset_bottom = 160.0
+texture = ExtResource("5_nimct")

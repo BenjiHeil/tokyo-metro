@@ -1,35 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbnsdgaar81sv"]
+[gd_scene load_steps=10 format=3 uid="uid://dbnsdgaar81sv"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1y2xy"]
+[ext_resource type="Script" path="res://scripts/pause_game.gd" id="1_ac86v"]
 [ext_resource type="PackedScene" uid="uid://b76xy1yh41a6o" path="res://scenes/enemy_spawner.tscn" id="2_yikvq"]
 [ext_resource type="PackedScene" uid="uid://daata6sobono3" path="res://scenes/player.tscn" id="3_5mm8c"]
 [ext_resource type="PackedScene" uid="uid://8838y7cujxld" path="res://scenes/game_ui.tscn" id="4_aad8d"]
 [ext_resource type="PackedScene" uid="uid://rn3j54347m8s" path="res://scenes/kill_zone_bats.tscn" id="5_f6nug"]
 [ext_resource type="PackedScene" uid="uid://busjddk4gquh2" path="res://scenes/kill_zone_snakes.tscn" id="6_o5sdk"]
 [ext_resource type="Texture2D" uid="uid://c28y6eq2n2bol" path="res://assets/Subway.png" id="7_3i4xl"]
+[ext_resource type="PackedScene" uid="uid://d2nhygjr6yg8" path="res://scenes/pause.tscn" id="9_rsnld"]
 
-[node name="SubwayScene" type="Node"]
+[node name="Container" type="Node"]
+process_mode = 3
+script = ExtResource("1_ac86v")
+
+[node name="SubwayScene" type="Node" parent="."]
+process_mode = 1
 script = ExtResource("1_1y2xy")
 hitPenalty = 10
 
-[node name="EnemySpawner" parent="." instance=ExtResource("2_yikvq")]
+[node name="EnemySpawner" parent="SubwayScene" instance=ExtResource("2_yikvq")]
 
-[node name="Player" parent="." instance=ExtResource("3_5mm8c")]
+[node name="Player" parent="SubwayScene" instance=ExtResource("3_5mm8c")]
 position = Vector2(14, 83)
 
-[node name="Control" parent="." instance=ExtResource("4_aad8d")]
+[node name="Control" parent="SubwayScene" instance=ExtResource("4_aad8d")]
 
-[node name="KillZoneBats" parent="." instance=ExtResource("5_f6nug")]
+[node name="KillZoneBats" parent="SubwayScene" instance=ExtResource("5_f6nug")]
 position = Vector2(42, 63)
 
-[node name="KillZoneSnakes" parent="." instance=ExtResource("6_o5sdk")]
+[node name="KillZoneSnakes" parent="SubwayScene" instance=ExtResource("6_o5sdk")]
 visible = true
 position = Vector2(42, 95)
 
-[node name="Subway" type="Sprite2D" parent="."]
+[node name="Subway" type="Sprite2D" parent="SubwayScene"]
 modulate = Color(1, 1, 1, 0.458824)
 z_index = -1
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(121, 76)
 texture = ExtResource("7_3i4xl")
+
+[node name="PauseScreen" parent="." instance=ExtResource("9_rsnld")]
+visible = false
